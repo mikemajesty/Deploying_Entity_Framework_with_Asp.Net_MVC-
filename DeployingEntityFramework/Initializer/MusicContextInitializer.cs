@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using DeployingEntityFramework.Models;
+using System.Collections.Generic;
 
 namespace DeployingEntityFramework.Initializer
 {
@@ -7,12 +8,21 @@ namespace DeployingEntityFramework.Initializer
     {
         protected override void Seed(MusicContext context)
         {
-            Artist artist = new Artist
+            Artist artirt = new Artist
             {
-                 Name = "Jhon Lenon"
+                Name = "Avantasia"
             };
-            context.Artist.Add(artist);
-            context.Album.Add(new Album { Price = 19, Title = "Wish" });
+            Album album = new Album
+            {
+                Price = 1.99m,
+                Title = "NeverMind",
+                Artist = new Artist
+                {
+                    Name = "Jhon Lenon"
+                }
+            };
+            context.Artist.Add(new SoloArtist { Name="David Bowie", Instrument = "Guitar", Album  = new List<Album> { new Album { Price = 1.99m, Title = "Pink" } }, ArtistDetails = new ArtistDetails { Bio = "BioLoco" } });
+            context.Album.Add(new Album { Price = 19, Title = "Wish", Artist = artirt });
             context.SaveChanges();
         }
     }

@@ -9,7 +9,7 @@ namespace DeployingEntityFramework.Models.Repository
         private readonly MusicContext context = null;
         protected DbSet<TEntity> dbSet { get; set; }
         public Repository()
-        {
+        {            
             context = new MusicContext();
             dbSet = context.Set<TEntity>();
         }

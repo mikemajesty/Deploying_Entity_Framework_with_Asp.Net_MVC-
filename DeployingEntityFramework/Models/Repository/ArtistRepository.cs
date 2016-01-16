@@ -11,5 +11,9 @@ namespace DeployingEntityFramework.Models.Repository
         {
             return dbSet.Where(c => c.Name == name).ToList();
         }
+        public List<SoloArtist> GetSoloArtist()
+        {
+            return dbSet.Select(solo => new SoloArtist {  Instrument = solo.Name }).ToList();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DeployingEntityFramework.Models
@@ -7,8 +8,11 @@ namespace DeployingEntityFramework.Models
     public class Artist
     {
         public int ArtistID { get; set; }
-        [Required()]
-        [StringLength(100,MinimumLength = 2)]
+        [Required(ErrorMessage = "{0} is required")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "{0} out of the range")]
         public string Name { get; set; }
+        public virtual ArtistDetails ArtistDetails { get; set; }
+        public virtual List<Album> Album { get; set; }
+       
     }
 }
