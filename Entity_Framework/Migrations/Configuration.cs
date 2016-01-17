@@ -9,7 +9,7 @@ namespace Entity_Framework.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Entity_Framework.MusicContext context)

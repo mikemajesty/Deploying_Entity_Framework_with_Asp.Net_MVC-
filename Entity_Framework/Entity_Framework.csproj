@@ -56,6 +56,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201601171314540_fullTable.cs" />
+    <Compile Include="Migrations\201601171314540_fullTable.Designer.cs">
+      <DependentUpon>201601171314540_fullTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601171347050_AlbumDetail.cs" />
+    <Compile Include="Migrations\201601171347050_AlbumDetail.Designer.cs">
+      <DependentUpon>201601171347050_AlbumDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601171351348_AlbumModify.cs" />
+    <Compile Include="Migrations\201601171351348_AlbumModify.Designer.cs">
+      <DependentUpon>201601171351348_AlbumModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601171357444_AlbumDetailsModify.cs" />
+    <Compile Include="Migrations\201601171357444_AlbumDetailsModify.Designer.cs">
+      <DependentUpon>201601171357444_AlbumDetailsModify.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +79,20 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601171314540_fullTable.resx">
+      <DependentUpon>201601171314540_fullTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601171347050_AlbumDetail.resx">
+      <DependentUpon>201601171347050_AlbumDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601171351348_AlbumModify.resx">
+      <DependentUpon>201601171351348_AlbumModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601171357444_AlbumDetailsModify.resx">
+      <DependentUpon>201601171357444_AlbumDetailsModify.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

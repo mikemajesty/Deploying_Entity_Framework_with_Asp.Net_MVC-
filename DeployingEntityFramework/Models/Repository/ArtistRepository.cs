@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace DeployingEntityFramework.Models.Repository
 {
@@ -13,7 +11,7 @@ namespace DeployingEntityFramework.Models.Repository
         }
         public List<SoloArtist> GetSoloArtist()
         {
-            return dbSet.Select(solo => new SoloArtist {  Instrument = solo.Name }).ToList();
+            return dbSet.OfType<SoloArtist>().ToList();
         }
     }
 }

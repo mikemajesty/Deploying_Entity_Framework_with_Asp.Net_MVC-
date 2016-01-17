@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,14 +49,28 @@ namespace DeployingEntityFramework.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "AlbumID,Price,Title")] Album album)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Album.Add(album);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.Album.Add(album);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(album);
+                return View(album);
+            }
+            catch (DbEntityValidationException erro)
+            {
+                erro.EntityValidationErrors.ToList()
+                .ForEach(c =>
+                {
+                    c.ValidationErrors.ToList()
+                    .ForEach(d => ModelState
+                    .AddModelError(d.PropertyName, d.ErrorMessage));
+                });
+                return View(album);
+            }
         }
 
         // GET: Album/Edit/5
@@ -72,6 +87,11 @@ namespace DeployingEntityFramework.Controllers
             }
             return View(album);
         }
+
+
+
+
+
 
         // POST: Album/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

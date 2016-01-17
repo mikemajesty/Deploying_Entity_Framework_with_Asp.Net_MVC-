@@ -200,6 +200,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\AlbumEditViewModel.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\ArtistDetails.cs" />
     <Compile Include="Models\IdentityModels.cs" />
