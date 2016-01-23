@@ -13,5 +13,7 @@ namespace DeployingEntityFramework.Models.Repository
         {
             return dbSet.OfType<SoloArtist>().ToList();
         }
+      
+
     }
 }

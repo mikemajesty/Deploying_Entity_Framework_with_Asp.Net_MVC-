@@ -9,7 +9,7 @@ namespace DeployingEntityFramework.Models.Repository
         private readonly MusicContext context = null;
         protected DbSet<TEntity> dbSet { get; set; }
         public Repository()
-        {            
+        {
             context = new MusicContext();
             dbSet = context.Set<TEntity>();
         }
@@ -17,7 +17,7 @@ namespace DeployingEntityFramework.Models.Repository
         {
             this.context = context;
         }
-       
+
         public virtual List<TEntity> GetAll()
         {
             return dbSet.ToList();
@@ -38,12 +38,13 @@ namespace DeployingEntityFramework.Models.Repository
         }
         public virtual bool Update(TEntity entity)
         {
-           context.Entry<TEntity>(entity).State = EntityState.Modified;
-           return SaveChanges();
+            context.Entry<TEntity>(entity).State = EntityState.Modified;
+            return SaveChanges();
         }
         public virtual bool SaveChanges()
         {
             return context.SaveChanges() > 0;
-        }
+        }        
+   
     }
 }
